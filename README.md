@@ -4,7 +4,10 @@
 ![Frame](datasets/original/image.png)
 
 ## Mask 
-![Samples](datasets/original/mask.png)
+![Mask](datasets/original/mask.png)
+
+## Output
+![Output](datasets/original/mask.png)
 
 ## Data
 ```
