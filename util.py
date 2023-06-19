@@ -210,13 +210,13 @@ def convert_frames_to_video(frame_folder, output_path, frame_per_second):
     print('Video conversion complete.')
     return
 
-def convert_frames_to_gif(frames_folder, output_path, duration=100):
+def convert_frames_to_gif(frames_folder, output_path, duration=25):
     # Get a list of all image files in the frames folder
     frame_files = sorted([f for f in os.listdir(frames_folder) if f.endswith(('.png', '.jpg', '.jpeg'))],
                           key=lambda x: int(x.split(".")[0]))
 
     images = []
-    for frame_file in frame_files:
+    for frame_file in frame_files[:200]:
         # Open each image frame
         frame_path = os.path.join(frames_folder, frame_file)
         image = Image.open(frame_path)
@@ -229,3 +229,4 @@ def convert_frames_to_gif(frames_folder, output_path, duration=100):
 
     print('GIF conversion complete.')
     return
+
