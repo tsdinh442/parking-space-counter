@@ -7,7 +7,7 @@
 ![Mask](datasets/original/mask.png)
 
 ## Output
-![Output](output/output.gif)
+![Alt Text](output/output.gif)
 
 ## Video source
 ```
