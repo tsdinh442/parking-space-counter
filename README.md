@@ -1,10 +1,8 @@
-# Parking Space Counter
+# Parking Space Counter 
 
-## Frame 
-![Frame](datasets/original/image.png)
+*** First of all, personal vehicles are not the future. It is crucial to reduce their usage in order to mitigate the carbon footprint in our atmosphere.***
 
-## Mask 
-![Mask](datasets/original/mask.png)
+Monitoring and analyzing the occupancy of parking spaces in a parking lot can indeed offer valuable insights into the growth and activity of nearby businesses. However, the high cost associated with installing a dedicated parking count system often deters free and non-gated parking lots from pursuing such solutions. In this project, the aim is to explore the feasibility of applying machine learning techniques to count parked cars using existing surveillance videos.
 
 ## Output
 ![Alt Text](output/output.gif)
