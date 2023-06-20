@@ -5,7 +5,7 @@
 ## Overview
 Monitoring and analyzing the occupancy of parking spaces in a parking lot can indeed offer valuable insights into the growth and activity of nearby businesses. However, the high cost associated with installing a dedicated parking count system often deters free and non-gated parking lots from pursuing such solutions. This project aims to explore the feasibility of applying machine learning techniques, such as convolution neural networks, to count parked cars using existing surveillance videos.
 
-## Challenge
+## Challenges
 In the task of counting the number of cars in a video frame, various approaches such as object detection techniques, object tracking, and object segmentation can be employed. However, the primary challenge lies in differentiating between parked cars and cars that are in motion. Our focus is on identifying and counting the cars that are parked in the designated parking stalls, excluding those that are actively driving or moving within the area.
 
 ## Solution
