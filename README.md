@@ -12,13 +12,13 @@ In the task of counting the number of cars in a video frame, various approaches 
 One way to overcome the challenge is by applying a binary mask technique. This involves extracting a video frame and creating a mask that highlights the shapes of each parking stall as white against a black background. By applying the mask, we can focus solely on the designated parking stall areas, allowing for a precise analysis of occupancy. 
 
 Frame:
-![Frame]('datasets/test/frame.jpg')
+![Frame](datasets/test/frame.jpg)
 
 Mask:
-![Mask]('datasets/test/mask.png')
+![Mask](datasets/test/mask.png)
 
 Extracted parking stall samples:
-![Samples]('samples.png')
+![Samples](samples.png)
 
 To determine the occupancy status of parking stalls, we can employ machine learning methods utilizing pre-trained models. In this case, the VGG-16 model can be utilized to extract meaningful features from the images of parking stalls. These extracted features can then serve as inputs to an XGBoost model, which can be trained to classify whether a stall is empty or occupied based on the learned patterns. 
 
