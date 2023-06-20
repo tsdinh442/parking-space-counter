@@ -11,18 +11,18 @@ In the task of counting the number of cars in a video frame, various approaches 
 ## Solution
 One way to overcome the challenge is by applying a binary mask technique. This involves extracting a video frame and creating a mask that highlights the shapes of each parking stall as white against a black background. By applying the mask, we can focus solely on the designated parking stall areas, allowing for a precise analysis of occupancy. 
 
-### Frame:
+#### Frame:
 ![Frame](datasets/test/frame.jpg)
 
-### Mask:
+#### Mask:
 ![Mask](datasets/test/mask.png)
 
-### Extracted parking stall samples:
+#### Extracted parking stall samples:
 ![Samples](samples.png)
 
 To determine the occupancy status of parking stalls, we can employ machine learning methods utilizing pre-trained models. In this case, the VGG-16 model can be utilized to extract meaningful features from the images of parking stalls. These extracted features can then serve as inputs to an XGBoost model, which can be trained to classify whether a stall is empty or occupied based on the learned patterns. 
 
-### VGG 16
+#### VGG 16
 
 VGG16 is a deep convolutional neural network architecture consisting of 16 layers, including convolutional and pooling layers, widely known for its strong performance in image classification tasks.
 
@@ -77,7 +77,7 @@ _________________________________________________________________
 
 ```
 
-### XGBoost
+#### XGBoost
 
 XGBoost is an optimized gradient boosting framework that utilizes an ensemble of decision tree models, employing a combination of boosting and regularization techniques to achieve high prediction accuracy and handle complex datasets.
 
