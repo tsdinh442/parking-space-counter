@@ -100,7 +100,7 @@ XGB_model = xgb.XGBClassifier(**params)
 ## Result
 ![Alt Text](output/output.gif)
 
-## Video source
+## Citation
 ```
 https://github.com/zhu-xlab/Busy-parking-lot-dataset---vehicle-detection-in-UAV-video#busy-parking-lot-dataset---vehicle-detection-in-uav-video
 ```
