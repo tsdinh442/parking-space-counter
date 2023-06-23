@@ -98,7 +98,7 @@ params = {
 XGB_model = xgb.XGBClassifier(**params)
 ```
 ## Result
-![Alt Text](output/output.gif)
+![Alt Text](output.gif)
 
 ## Acknowledgment
 The video used in the project was obtained from:
