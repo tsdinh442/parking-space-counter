@@ -7,12 +7,25 @@ from tensorflow.image import flip_left_right, adjust_brightness
 
 
 def augment(image):
+    '''
+    given an image, return an augmneted version of the image
+    '''
     image = flip_left_right(image)
     #image = adjust_brightness(image, delta=0.1)
     return image
 
 def load_data(directory_path, image_size, augmentation=False):
+    '''
+    load the images from the folder; if augnmentation set to True, load both the original and the augmented images
+    input: 
+    directory_path: str, path to the folder containing the images
+    image_size: tuple, the size the images will be resized to
+    augmentation: bool, whether nor not to load the aumented images
 
+    return:
+    images, labels (matching the images)
+    '''
+    
     images = []
     labels = []
     for label in os.listdir(directory_path):
@@ -80,16 +93,48 @@ def extract_parking_stalls(image_path, mask_path, folder_path):
         return
 
 def helper_predict(vgg, model, data, input_size):
+    '''
+    preparing the image data to the correct size and shape, extract the features, then classify the images
+    input:
+    vgg: pretrained vgg16 model
+    mode: the trained model
+    data: the image to be classified
+    input_size: tuple, the size of the image that was trained on the model
 
+    return: 
+    pred: the predicted catagory of the image
+    '''
+
+    # resize and normalize
     data = cv2.resize(data, input_size)
     data = data / 255
     input_img = np.expand_dims(data, axis=0)
+
+    # extract the features by running it thru the vgg16 model
     feature_extractor = vgg.predict(input_img)
+
+    # reshape the feature to the correct shape
     features = feature_extractor.reshape(feature_extractor.shape[0], -1)
+
+    # classifying the image
     pred = model.predict(features)
+    
     return pred
 
 def parking_counter(video_path, mask_path, output_folder_path, input_size, vgg, model):
+    '''
+    predict the number of cars in a video
+    input:
+    video_path: str, path to the video
+    mask_path: str, path to the mask of the frame
+    output_folder_path: str, path to the folder where each predicted frame to be saved
+    input_size: tuple, the size of the image that the model was trained on
+    vgg: pretrained vgg 16
+    mode: the model used for prediction
+
+    return None
+    '''
+    
     # Define colors in BGR color space
     RED = (0, 0, 255)
     GREEN = (0, 255, 0)
@@ -181,6 +226,15 @@ def parking_counter(video_path, mask_path, output_folder_path, input_size, vgg, 
     return
 
 def convert_frames_to_video(frame_folder, output_path, frame_per_second):  
+    '''
+    combine the frames into a video
+    input:
+    frame_folder: str, path to the folder storing the frames
+    output_path: str, path to where the video will be saved
+    frame_per_second: int, the number of frames in a second
+
+    return None
+    '''
     file_names = os.listdir(frame_folder)
     # Sort the file names numerically, excluding non-numeric file names
     sorted_file_names = sorted(
@@ -211,6 +265,15 @@ def convert_frames_to_video(frame_folder, output_path, frame_per_second):
     return
 
 def convert_frames_to_gif(frames_folder, output_path, duration=25):
+    '''
+    combining frames into gif
+    input:
+    frame_folder: str, path to the folder storing the frames
+    output_path: str, path to where the gif will be saved
+    frame_per_second: int, the duration of the gif
+
+    return None
+    '''
     # Get a list of all image files in the frames folder
     frame_files = sorted([f for f in os.listdir(frames_folder) if f.endswith(('.png', '.jpg', '.jpeg'))],
                           key=lambda x: int(x.split(".")[0]))
