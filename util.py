@@ -161,7 +161,7 @@ def parking_counter(video_path, mask_path, output_folder_path, input_size, vgg, 
         if frame_count > 47:  # start from frame 48 because the first few frames are transitional
             overlay = frame.copy()
 
-            if frame_count % 12 == 0:
+            if frame_count % 12 == 0: # only choose every 12 frames for speed and efficiency 
                 empty = []
                 occupied = []
 
@@ -211,6 +211,7 @@ def parking_counter(video_path, mask_path, output_folder_path, input_size, vgg, 
             cv2.putText(result, 'Occupied: ' + str(len(occupied)), (50 + 10, 130 - 7), font, font_scale, (0, 0, 0), thickness)
 
             cv2.imwrite(output_folder_path + '{}.jpg'.format(frame_count), result)
+        
         frame_count += 1
 
         # Display or save the cropped image
@@ -257,7 +258,11 @@ def convert_frames_to_video(frame_folder, output_path, frame_per_second):
 
         # Resize the frame if necessary
         # frame = cv2.resize(frame, (frame_width, frame_height))
-        output_video.write(frame)
+        success = output_video.write(frame)
+
+        # Check if the frame was written successfully
+        if not success:
+            print(f"Error writing frame {frame_file}")
 
     output_video.release()
     cv2.destroyAllWindows()

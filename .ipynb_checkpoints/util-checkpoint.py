@@ -257,7 +257,11 @@ def convert_frames_to_video(frame_folder, output_path, frame_per_second):
 
         # Resize the frame if necessary
         # frame = cv2.resize(frame, (frame_width, frame_height))
-        output_video.write(frame)
+        success = output_video.write(frame)
+
+        # Check if the frame was written successfully
+        if not success:
+            print(f"Error writing frame {frame_file}")
 
     output_video.release()
     cv2.destroyAllWindows()
