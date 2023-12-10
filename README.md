@@ -1,6 +1,6 @@
 # Parking Occupany Analysis Using VGG-16 and XGBoost
 
-<img src='https://img.shields.io/badge/image%20classification%20-8A2BE2'> <img src='https://img.shields.io/badge/VGG-16-8A2BE2'> <img src='https://img.shields.io/badge/XGBoost-8A2BE2'> <img src='https://img.shields.io/badge/OpenCV-8A2BE2'>
+<img src='https://img.shields.io/badge/image%20classification%20-8A2BE2'> <img src='https://img.shields.io/badge/VGG16-8A2BE2'> <img src='https://img.shields.io/badge/XGBoost-8A2BE2'> <img src='https://img.shields.io/badge/OpenCV-8A2BE2'>
 
 ![Alt Text](output.gif)
 
